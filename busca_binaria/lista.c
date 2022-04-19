@@ -33,6 +33,25 @@ void imprimir(lista l) {
 }
 
 int buscar_recursivo(lista l, elem x, long ini, long fim) {
+    long meio;
+
+    if (ini == fim) {
+        // caso trivial, vetor unitario
+        return l.dados[ini] == x;
+    }
+
+    meio = ini + (fim - ini) / 2;
+
+    if (l.dados[meio] == x) {
+        // sucesso, elemento encontrado
+        return 1;
+    }
+
+    if (l.dados[meio] < x) {
+        return (meio + 1 <= fim) ? buscar_recursivo(l, x, meio + 1, fim) : 0;
+    } else {
+        return (ini <= meio - 1) ? buscar_recursivo(l, x, ini, meio - 1) : 0;
+    }
 }
 
 int buscar(lista l, elem x) {
