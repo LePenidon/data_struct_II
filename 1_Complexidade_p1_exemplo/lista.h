@@ -1,4 +1,4 @@
-#define TAM 10000000
+#define TAM 1000000
 
 typedef int elem;
 
