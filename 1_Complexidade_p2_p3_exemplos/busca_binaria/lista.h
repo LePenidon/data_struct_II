@@ -3,9 +3,9 @@
 typedef int elem;
 
 typedef struct {
-	elem *dados;
+    elem *dados;
     elem *copia;
-	long tamanho;
+    long tamanho;
 } lista;
 
 void criar(lista *l);
