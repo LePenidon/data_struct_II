@@ -1,4 +1,4 @@
-#define TAM 1000000000
+#define TAM 100000
 
 typedef int elem;
 
@@ -12,5 +12,9 @@ void criar(lista *l);
 void destruir(lista *l);
 int inserir(lista *l, elem x);
 void imprimir(lista l);
-int buscar(lista l, elem x);
+void ordenar_n2(lista l);
 void ordenar_nlogn(lista l);
+void ordenar_bubble(lista l);
+void ordenar_quick_sort(lista l);
+void ordenar_insercao_simples(lista l);
+ 
