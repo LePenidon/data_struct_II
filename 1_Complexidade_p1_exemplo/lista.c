@@ -32,6 +32,7 @@ void imprimir(lista l) {
     printf(")\n");
 }
 
+// bubbleSort
 void ordenar_n2(lista l) {
     elem menor, aux;
     long idMenor;
