@@ -221,32 +221,31 @@ void ordenar_nlogn_penido(lista l) {
 }
 
 void ordenar_bubble_penido(lista l) {
-    long i, j, trocou, aux;
+    long i, j, aux;
+    int trocou = 1;
 
-    trocou = 1;
-
-    for (i = 0; trocou && l.tamanho - 1; i++) {
+    for (i = 0; trocou && i < l.tamanho - 1; i++) {
         trocou = 0;
-
         for (j = 1; j < l.tamanho - i; j++) {
             if (l.dados[j - 1] > l.dados[j]) {
+                trocou = 1;
                 aux = l.dados[j - 1];
                 l.dados[j - 1] = l.dados[j];
                 l.dados[j] = aux;
-
-                trocou = 1;
             }
         }
     }
 }
 
 void ordenar_quick_sort_penido_rec(lista l, long ini, long fim) {
-    long i, j, aux;
+    long i, j;
+    elem aux;
 
-    if (ini >= fim)
+    if (ini >= fim) {
         return;
+    }
 
-    j = i = ini;
+    i = j = ini;
 
     for (; j < fim; j++) {
         if (l.dados[j] < l.dados[fim]) {
@@ -257,18 +256,16 @@ void ordenar_quick_sort_penido_rec(lista l, long ini, long fim) {
             i++;
         }
     }
-
     aux = l.dados[i];
-    l.dados[i] = l.dados[j];
-    l.dados[j] = aux;
+    l.dados[i] = l.dados[fim];
+    l.dados[fim] = aux;
 
     ordenar_quick_sort_penido_rec(l, ini, i - 1);
     ordenar_quick_sort_penido_rec(l, i + 1, fim);
 }
 
 void ordenar_quick_sort_penido(lista l) {
-    if (l.tamanho > 0)
-        ordenar_quick_sort_penido_rec(l, 0, l.tamanho - 1);
+    ordenar_quick_sort_penido_rec(l, 0, l.tamanho - 1);
 }
 
 void ordenar_insercao_simples_penido(lista l) {
@@ -277,11 +274,9 @@ void ordenar_insercao_simples_penido(lista l) {
 
     for (i = 1; i < l.tamanho; i++) {
         a_inserir = l.dados[i];
-
-        for (j = i - 1; j >= 0 && l.dados[j] > a_inserir; j--) {
+        for (j = i - 1; j >= 0 && a_inserir < l.dados[j]; j--) {
             l.dados[j + 1] = l.dados[j];
         }
-
         l.dados[++j] = a_inserir;
     }
 }
