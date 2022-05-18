@@ -163,15 +163,15 @@ void ordenar_insercao_simples(lista l) {
 // -------------------------------------------------------------------------------
 
 void ordenar_n2_penido(lista l) {
-    int i, j, menor, idMenor, aux;
+    long i, j, menor, idMenor, aux;
 
     for (i = 0; i < l.tamanho; i++) {
         menor = l.dados[i];
-
-        for (j = i + 1; j < l.tamanho; j++) {
+        idMenor = i;
+        for (j = i; j < l.tamanho; j++) {
             if (l.dados[j] < menor) {
-                idMenor = j;
                 menor = l.dados[j];
+                idMenor = j;
             }
         }
         aux = l.dados[i];
@@ -181,19 +181,20 @@ void ordenar_n2_penido(lista l) {
 }
 
 void ordenar_nlogn_penido_rec(lista l, long ini, long fim) {
-    long lc, li, ls, meio;
+    long lc, ls, li, meio;
 
-    if (ini == fim)
+    if (ini == fim) {
         return;
+    }
 
     meio = (ini + fim) / 2;
     ordenar_nlogn_penido_rec(l, ini, meio);
     ordenar_nlogn_penido_rec(l, meio + 1, fim);
 
-    lc = li = ini;
+    li = lc = ini;
     ls = meio + 1;
 
-    while (li <= meio && ls <= fim) {
+    while (ls <= fim && li <= meio) {
         if (l.dados[li] < l.dados[ls]) {
             l.copia[lc] = l.dados[li];
             lc++;
@@ -205,10 +206,13 @@ void ordenar_nlogn_penido_rec(lista l, long ini, long fim) {
         }
     }
 
-    while (li <= meio)
+    while (li <= meio) {
         l.copia[lc++] = l.dados[li++];
-    while (ls <= fim)
+    }
+
+    while (ls <= fim) {
         l.copia[lc++] = l.dados[ls++];
+    }
 
     for (lc = ini; lc <= fim; lc++) {
         l.dados[lc] = l.copia[lc];
@@ -225,13 +229,13 @@ void ordenar_bubble_penido(lista l) {
     int trocou = 1;
 
     for (i = 0; trocou && i < l.tamanho - 1; i++) {
-        trocou = 0;
         for (j = 1; j < l.tamanho - i; j++) {
             if (l.dados[j - 1] > l.dados[j]) {
-                trocou = 1;
                 aux = l.dados[j - 1];
                 l.dados[j - 1] = l.dados[j];
                 l.dados[j] = aux;
+
+                trocou = 1;
             }
         }
     }
@@ -246,7 +250,6 @@ void ordenar_quick_sort_penido_rec(lista l, long ini, long fim) {
     }
 
     i = j = ini;
-
     for (; j < fim; j++) {
         if (l.dados[j] < l.dados[fim]) {
             aux = l.dados[i];
@@ -256,9 +259,10 @@ void ordenar_quick_sort_penido_rec(lista l, long ini, long fim) {
             i++;
         }
     }
-    aux = l.dados[i];
-    l.dados[i] = l.dados[fim];
-    l.dados[fim] = aux;
+
+    aux = l.dados[fim];
+    l.dados[fim] = l.dados[i];
+    l.dados[i] = aux;
 
     ordenar_quick_sort_penido_rec(l, ini, i - 1);
     ordenar_quick_sort_penido_rec(l, i + 1, fim);

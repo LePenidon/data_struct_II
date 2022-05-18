@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 void quick_sort_original_rec_penido(int v[], long ini, long fim) {
-    long i, j, meio;
-    int pivo, aux;
+    long i, j, meio, aux, pivo;
 
-    if (ini >= fim)
+    if (ini >= fim) {
         return;
+    }
 
     meio = (ini + fim) / 2;
     pivo = v[meio];
@@ -14,13 +14,14 @@ void quick_sort_original_rec_penido(int v[], long ini, long fim) {
     j = fim;
 
     while (1) {
-        for (; v[i] < pivo; i++)
-            ;
-        for (; v[j] > pivo; j--)
-            ;
+        for (; v[i] < pivo; i++) {
+        }
+        for (; v[j] > pivo; j--) {
+        }
 
-        if (i == j)
+        if (i == j) {
             break;
+        }
 
         aux = v[i];
         v[i] = v[j];

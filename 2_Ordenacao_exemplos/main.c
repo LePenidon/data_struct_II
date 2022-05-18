@@ -38,7 +38,7 @@ int main(void) {
             // ordenar_n2_penido(l);
             // ordenar_nlogn_penido(l);
             // ordenar_bubble_penido(l);
-            // ordenar_quick_sort_penido(l);
+            ordenar_quick_sort_penido(l);
             // ordenar_insercao_simples_penido(l);
 
             // registra tempo decorrido
