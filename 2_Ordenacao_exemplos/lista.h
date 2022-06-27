@@ -1,12 +1,12 @@
-#define TAM 10000000
+#define TAM 10
 
 typedef int elem;
 
 typedef struct {
-	elem *dados;
+    elem *dados;
     elem *copia;
     long *contagens;
-	long tamanho;
+    long tamanho;
 } lista;
 
 void criar(lista *l);
