@@ -65,7 +65,7 @@ int main(void) {
     int retorno, n = 10, t = 3;
     elem tabela[] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, -1};  // tabela de dados
     elem_i *tabind;                                            // tabela de indice primario
-    elem e = 20;
+    elem e = 60;
 
     // controi tabela de indice
     tabind = malloc(sizeof(elem_i) * t);
@@ -77,8 +77,8 @@ int main(void) {
     // faz a busca
     // retorno = busca_sequencial(tabela, n, e);
     // retorno = busca_sequencial_sentinela(tabela, n, e);
-    retorno = busca_sequencial_ordenada(tabela, n, e);
-    // retorno = busca_sequencial_indexada(tabela, n, e, tabind, t);
+    // retorno = busca_sequencial_ordenada(tabela, n, e);
+    retorno = busca_sequencial_indexada(tabela, n, e, tabind, t);
     //  retorno = busca_binaria(tabela, n, e);
 
     if (retorno != -1)
