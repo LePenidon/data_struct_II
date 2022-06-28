@@ -34,11 +34,11 @@ int main(void) {
             // ordenar_bubble(l);
             // ordenar_quick_sort(l);
             // ordenar_insercao_simples(l);
-            ordenar_shell(l);
+            // ordenar_shell(l);
             // ordenar_heap(l);
             // ordenar_contagem_menores(l);
             // ordenar_contagem_tipos(l);
-            //  ordenar_raizes(l);
+            ordenar_raizes(l);
 
             // registra tempo decorrido
             soma_tempos += clock() - tempo_ini;
