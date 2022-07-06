@@ -1,8 +1,5 @@
-all: lista.o main.o 
-	gcc lista.o main.o -o execute -pedantic-errors -Wall -lm; ./execute
-
-lista.o:
-	gcc -c lista.c -o lista.o
+all: main.o 
+	gcc main.o -o execute -pedantic-errors -Wall -lm; ./execute
 
 main.o:
 	gcc -c main.c -o main.o
